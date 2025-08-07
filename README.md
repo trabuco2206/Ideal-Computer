@@ -8,11 +8,18 @@ Devido a grande demanda em montagem de computadores para trabalho e estudos remo
 
 ETAPA 01
 
-Nome:  Ideal Computer
-Objetivo: 
-Público-alvo:
-Principais funcionalidades:
-Problema que será resolvido:
-Recursos desejados:
-Plataforma: Web e Mobile.
-Prazos e expectativas:
+Nome:  Ideal Computer;
+
+Objetivo: Auxiliar o usuário a escolher o melhor hardware/periférico com base em sua finalidade de uso;
+
+Público-alvo: Pessoas ou empresas que querem montar um PC mas são leigos no assunto;
+
+Principais funcionalidades: Filtragem e busca do hardware conforme necessidade e uso do usuário;
+
+Problema que será resolvido: Compra errada de hardwares sem compatibilidade;
+
+Recursos desejados: 
+
+Plataforma: Web e Mobile;
+
+Prazos e expectativas: 

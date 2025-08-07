@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PC Ideal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="app">
+        <div id="intro" class="screen active">
+            <h1>PC Ideal: Sua Máquina de Batalha</h1>
+            <p>Monte o computador perfeito para o seu desafio.</p>
+            <button id="start-btn" class="btn primary">Iniciar Jornada</button>
+        </div>
+
+        <div id="passo-1" class="screen">
+            <h2>Para que você vai usar o PC?</h2>
+            <div class="options-grid">
+                <button class="option-card" data-step="passo-2-jogos">
+                    <img src="https://img.icons8.com/color/100/controller.png" alt="Jogos">
+                    <span>Jogar</span>
+                </button>
+                <button class="option-card" data-step="passo-2-trabalho">
+                    <img src="https://img.icons8.com/color/100/work.png" alt="Trabalhar">
+                    <span>Trabalhar</span>
+                </button>
+                <button class="option-card" data-step="passo-2-estudos">
+                    <img src="https://img.icons8.com/color/100/book.png" alt="Estudar">
+                    <span>Estudar</span>
+                </button>
+                <button class="option-card" data-step="passo-2-criacao">
+                    <img src="https://img.icons8.com/color/100/video-editing.png" alt="Criar Conteúdo">
+                    <span>Criar Conteúdo</span>
+                </button>
+            </div>
+            <button class="btn next-step">Avançar</button>
+        </div>
+
+        <div id="passo-2-jogos" class="screen">
+            <h2>Quais jogos você mais joga?</h2>
+            <div class="options-grid">
+                <button class="option-card game-card" data-game="gtav">
+                    <img src="https://static.vecteezy.com/system/resources/previews/024/693/449/original/gta-v-logo-transparent-free-png.png"
+                        alt="GTA V" style="object-fit: contain;">
+                    <span>GTA V</span>
+                </button>
+                <button class="option-card game-card" data-game="cs2">
+                    <img src="https://img.icons8.com/color/100/counter-strike.png" alt="CS2">
+                    <span>CS2</span>
+                </button>
+                <button class="option-card game-card" data-game="valorant">
+                    <img src="https://img.icons8.com/color/100/valorant.png" alt="Valorant">
+                    <span>Valorant</span>
+                </button>
+                <button class="option-card game-card" data-game="cyberpunk">
+                    <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/b5722a44-63d6-42f7-93f4-4ed4b8527d19/dgdcdr4-7b73fbef-4bbf-45ed-b06d-481390863345.png/v1/fill/w_894,h_894/cyberpunk_2077_icon_by_n101gamingxyz_dgdcdr4-pre.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTEzNCIsInBhdGgiOiJcL2ZcL2I1NzIyYTQ0LTYzZDYtNDJmNy05M2Y0LTRlZDRiODUyN2QxOVwvZGdkY2RyNC03YjczZmJlZi00YmJmLTQ1ZWQtYjA2ZC00ODEzOTA4NjMzNDUucG5nIiwid2lkdGgiOiI8PTExMzMifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.60AwaFz6M7Iz6DxQn3lF48yUEN5vZ97adyz2ltClEjs"
+                        alt="Cyberpunk 2077" style="object-fit: contain;">
+                    <span>Cyberpunk 2077</span>
+                </button>
+            </div>
+            <button class="btn next-step">Avançar</button>
+        </div>
+
+        <div id="passo-2-trabalho" class="screen">
+            <h2>Qual seu tipo de trabalho?</h2>
+            <div class="options-grid">
+                <button class="option-card work-card" data-work="render">
+                    <img src="https://img.icons8.com/color/100/3d-printer.png" alt="Renderização">
+                    <span>Renderização 3D</span>
+                </button>
+                <button class="option-card work-card" data-work="office">
+                    <img src="https://img.icons8.com/color/100/ms-word.png" alt="Pacote Office">
+                    <span>Pacote Office</span>
+                </button>
+                <button class="option-card work-card" data-work="programacao">
+                    <img src="https://img.icons8.com/color/100/code.png" alt="Programação">
+                    <span>Programação</span>
+                </button>
+                <button class="option-card work-card" data-work="design">
+                    <img src="https://img.icons8.com/color/100/adobe-photoshop.png" alt="Design Gráfico">
+                    <span>Design Gráfico</span>
+                </button>
+            </div>
+            <button class="btn next-step">Avançar</button>
+        </div>
+
+        <div id="resultado" class="screen">
+            <h2>Configuração Recomendada</h2>
+            <div id="componentes-container">
+            </div>
+            <div class="summary">
+                <h3>Total Estimado: <span id="total-price">R$ 0,00</span></h3>
+            </div>
+            <button class="btn primary">Gerar Orçamento</button>
+            <button class="btn secondary">Recomeçar</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

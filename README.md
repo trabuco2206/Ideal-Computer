@@ -18,11 +18,11 @@ Principais funcionalidades: Filtragem e busca do hardware conforme necessidade e
 
 Problema que será resolvido: Compra errada de hardwares sem compatibilidade;
 
-Recursos desejados: 
+Recursos desejados: Frontend (Web): HTML, CSS e JavaScript, Frontend (Mobile): React Native ou Flutter, Backend: Java, Banco de Dados: MySQL, Infraestrutura: Servidores em nuvem, Integrações: Uso de APIs de e-commerce
 
 Plataforma: Web e Mobile;
 
-Prazos e expectativas: 
+Prazos e expectativas: Dividido em 3 fases, Fase 1 (1-2 meses), Fase 2 (2-4 meses), Fase 3 (5+ meses);
 
 #
 

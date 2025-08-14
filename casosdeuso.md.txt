@@ -1,0 +1,170 @@
+Casos de Uso: Usuário Não-Autenticado
+CU-001: Acessar a Plataforma
+
+Ator: Usuário Não-Autenticado.
+
+Pré-condição: O usuário acessa o site ou abre o aplicativo.
+
+Fluxo Principal: A plataforma exibe a tela inicial, com a opção de "Iniciar Jornada" para montar um PC ou fazer login/cadastro.
+
+Pós-condição: O usuário está na página inicial, pronto para interagir com a plataforma.
+
+CU-002: Iniciar Montagem de PC
+
+Ator: Usuário Não-Autenticado.
+
+Pré-condição: O usuário está na tela inicial.
+
+Fluxo Principal:
+
+O usuário clica no botão "Iniciar Jornada".
+
+A plataforma exibe a primeira pergunta do questionário interativo.
+
+Pós-condição: O usuário inicia o processo de montagem e navega pelo questionário.
+
+CU-003: Visualizar Resultado da Montagem
+
+Ator: Usuário Não-Autenticado.
+
+Pré-condição: O usuário respondeu a todas as perguntas do questionário.
+
+Fluxo Principal:
+
+A plataforma processa as respostas.
+
+A plataforma exibe a lista de hardwares compatíveis, o preço estimado e a descrição de cada peça.
+
+O usuário pode ver os links de lojas para compra.
+
+Pós-condição: A montagem recomendada é exibida na tela.
+
+CU-004: Fazer Cadastro
+
+Ator: Usuário Não-Autenticado.
+
+Pré-condição: O usuário está na tela inicial.
+
+Fluxo Principal:
+
+O usuário clica no botão "Cadastro".
+
+O sistema exibe o formulário de cadastro (nome, e-mail, senha).
+
+O usuário preenche os dados e clica em "Cadastrar".
+
+O sistema valida os dados e cria a conta do usuário.
+
+Pós-condição: O usuário é redirecionado para a tela de login.
+
+Casos de Uso: Usuário Autenticado
+CU-005: Fazer Login
+
+Ator: Usuário Autenticado.
+
+Pré-condição: O usuário está na tela de login.
+
+Fluxo Principal:
+
+O usuário insere e-mail e senha.
+
+O sistema valida as credenciais.
+
+O sistema autentica o usuário e o redireciona para a página principal (ou painel de usuário).
+
+Fluxo Alternativo: Se as credenciais estiverem incorretas, o sistema exibe uma mensagem de erro.
+
+Pós-condição: O usuário está logado na plataforma.
+
+CU-006: Salvar Configuração de PC
+
+Ator: Usuário Autenticado.
+
+Pré-condição: O usuário visualizou o resultado de uma montagem de PC.
+
+Fluxo Principal:
+
+O usuário clica no botão "Salvar Configuração".
+
+O sistema salva a lista de hardwares no perfil do usuário.
+
+Pós-condição: A montagem está salva no histórico do usuário.
+
+CU-007: Acessar Histórico de Montagens
+
+Ator: Usuário Autenticado.
+
+Pré-condição: O usuário está logado e já salvou pelo menos uma montagem.
+
+Fluxo Principal:
+
+O usuário acessa a área de perfil.
+
+A plataforma exibe uma lista com todas as montagens salvas.
+
+O usuário pode clicar em uma montagem para visualizar os detalhes novamente.
+
+Pós-condição: O usuário tem acesso ao seu histórico de configurações.
+
+CU-008: Enviar Feedback e Sugestões
+
+Ator: Usuário Autenticado.
+
+Pré-condição: O usuário está na página de feedback.
+
+Fluxo Principal:
+
+O usuário escreve sua mensagem e clica em "Enviar".
+
+O sistema envia a mensagem para a equipe de suporte.
+
+Pós-condição: A sugestão é registrada.
+
+CU-009: Interagir com o Bot de Suporte
+
+Ator: Usuário Autenticado.
+
+Pré-condição: O usuário está na plataforma.
+
+Fluxo Principal:
+
+O usuário clica no ícone do bot de suporte.
+
+Uma janela de chat é aberta.
+
+O usuário digita sua pergunta e o bot responde com base em um banco de dados de FAQs ou encaminha para um atendente humano.
+
+Pós-condição: O usuário recebe suporte para suas dúvidas.
+
+Casos de Uso: Backend e Integrações
+CU-010: Buscar e Filtrar Hardwares (Java Backend)
+
+Ator: Sistema (Backend).
+
+Pré-condição: A API recebe os critérios de busca (uso, orçamento, jogo/software).
+
+Fluxo Principal:
+
+O backend consulta o banco de dados de hardwares para encontrar peças que se encaixem nos critérios.
+
+O sistema aplica a lógica de compatibilidade entre as peças (ex: CPU e Placa-mãe).
+
+O sistema retorna uma lista de configurações recomendadas para o frontend.
+
+Pós-condição: O frontend recebe os dados para exibir a montagem ideal.
+
+CU-011: Integrar com APIs de Varejo
+
+Ator: Sistema (Backend).
+
+Pré-condição: O sistema precisa atualizar os preços e links de compra.
+
+Fluxo Principal:
+
+O backend faz requisições às APIs de lojas parceiras (ex: Kabum API).
+
+O sistema coleta dados como preço, estoque e URL do produto.
+
+O sistema armazena ou atualiza esses dados em seu próprio banco.
+
+Pós-condição: A plataforma tem informações de preços e links de compra atualizados.

@@ -1,24 +1,42 @@
-import { useLocation } from "react-router-dom";
-import { useEffect } from "react";
+import { Link } from 'react-router-dom';
+import { Button } from '../components/ui/button';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../components/ui/card';
+import { Home, ArrowLeft } from 'lucide-react';
 
-const NotFound = () => {
-  const location = useLocation();
-
-  useEffect(() => {
-    console.error("404 Error: User attempted to access non-existent route:", location.pathname);
-  }, [location.pathname]);
-
+export default function NotFound() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">404</h1>
-        <p className="mb-4 text-xl text-gray-600">Oops! Page not found</p>
-        <a href="/" className="text-blue-500 underline hover:text-blue-700">
-          Return to Home
-        </a>
-      </div>
+    <div className="min-h-screen bg-gradient-to-br from-background to-muted/30 flex items-center justify-center p-4">
+      <Card className="w-full max-w-lg text-center">
+        <CardHeader className="pb-6">
+          <div className="mx-auto bg-muted rounded-full w-20 h-20 flex items-center justify-center mb-4">
+            <span className="text-4xl font-bold text-muted-foreground">404</span>
+          </div>
+          <CardTitle className="text-2xl">Página não encontrada</CardTitle>
+          <CardDescription>
+            A página que você está procurando não existe ou foi movida.
+          </CardDescription>
+        </CardHeader>
+        
+        <CardContent className="space-y-4">
+          <p className="text-muted-foreground">
+            Que tal voltar para a página inicial e explorar nossas recomendações de PC?
+          </p>
+          
+          <div className="flex flex-col sm:flex-row gap-3 justify-center">
+            <Button asChild>
+              <Link to="/" className="flex items-center">
+                <Home className="mr-2 h-4 w-4" />
+                Página inicial
+              </Link>
+            </Button>
+            
+            <Button variant="outline" onClick={() => window.history.back()}>
+              <ArrowLeft className="mr-2 h-4 w-4" />
+              Voltar
+            </Button>
+          </div>
+        </CardContent>
+      </Card>
     </div>
   );
-};
-
-export default NotFound;
+}

@@ -1,73 +1,147 @@
-# Welcome to your Lovable project
+# PC Ideal - Sistema de Recomendação de PC
 
-## Project info
+Uma aplicação web em React + TypeScript para recomendação personalizada de componentes de PC, com interface administrativa e sistema de autenticação.
 
-**URL**: https://lovable.dev/projects/a278fa0f-fe6d-4f4f-aa2a-aae48fd78475
+## 🚀 Como executar
 
-## How can I edit this code?
+```bash
+# Instalar dependências
+npm install
 
-There are several ways of editing your application.
-
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/a278fa0f-fe6d-4f4f-aa2a-aae48fd78475) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Executar em desenvolvimento
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+A aplicação estará disponível em `http://localhost:8080`
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## 🔧 Configuração
 
-**Use GitHub Codespaces**
+### Variáveis de Ambiente
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+Copie o arquivo `.env.example` para `.env`:
 
-## What technologies are used for this project?
+```bash
+cp .env.example .env
+```
 
-This project is built with:
+- **VITE_API_URL**: URL da API backend. Se deixado vazio, a aplicação usará dados mock para demonstração.
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+### Modo Mock vs Backend Real
 
-## How can I deploy this project?
+**Modo Mock (padrão):**
+- Deixe `VITE_API_URL` vazio no arquivo `.env`
+- Dados de demonstração inclusos
+- Usuários de teste:
+  - Admin: `admin@ideal.com` / `123456`
+  - Usuário: `user@ideal.com` / `123456`
 
-Simply open [Lovable](https://lovable.dev/projects/a278fa0f-fe6d-4f4f-aa2a-aae48fd78475) and click on Share -> Publish.
+**Backend Real:**
+- Configure `VITE_API_URL` com a URL da sua API
+- Implemente os endpoints listados abaixo
 
-## Can I connect a custom domain to my Lovable project?
+## 📱 Funcionalidades
 
-Yes, you can!
+### Páginas Públicas
+- **Home** (`/`): Landing page com call-to-action
+- **Login** (`/login`): Autenticação de usuários
+- **Register** (`/register`): Cadastro de novos usuários
+- **Questionário** (`/questionario`): Coleta de requisitos (propósito e orçamento)
+- **Motivos** (`/motivos`): Explicação das recomendações
+- **Peças** (`/pecas`): Detalhamento de componentes e preços
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+### Páginas Protegidas
+- **Minhas Builds** (`/minhas-builds`): Builds salvas pelo usuário
+- **Admin Usuários** (`/admin/usuarios`): Gerenciamento de usuários (apenas ADMIN)
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+## 🛠 Endpoints da API
+
+### Autenticação
+```
+POST /api/auth/login
+POST /api/auth/register
+```
+
+### Recomendações
+```
+POST /api/recommendations
+```
+
+### Usuários (Admin)
+```
+GET /api/users
+POST /api/users
+PUT /api/users/:id
+DELETE /api/users/:id
+```
+
+### Builds
+```
+GET /api/builds (builds do usuário logado)
+POST /api/builds
+```
+
+## 🎨 Stack Tecnológica
+
+- **Frontend**: React 18 + TypeScript
+- **Roteamento**: React Router 6
+- **Estilização**: Tailwind CSS + shadcn/ui
+- **Formulários**: React Hook Form + Zod
+- **Estado**: React Query
+- **Build**: Vite
+
+## 📁 Estrutura do Projeto
+
+```
+src/
+├── components/          # Componentes reutilizáveis
+│   ├── ui/             # Componentes shadcn/ui
+│   ├── Navbar.tsx      # Navegação principal
+│   └── FormCard.tsx    # Card para formulários
+├── context/            # Contextos React
+│   └── AuthContext.tsx # Contexto de autenticação
+├── hooks/              # Hooks customizados
+├── pages/              # Páginas da aplicação
+├── routes/             # Proteção de rotas
+├── services/           # Serviços de API
+├── types/              # Tipos TypeScript
+└── App.tsx            # Componente principal
+```
+
+## 🔐 Sistema de Autenticação
+
+- **JWT**: Tokens armazenados no localStorage
+- **Roles**: USER | ADMIN
+- **Proteção**: Rotas protegidas por login e role
+- **Redirecionamento**: Automático para login quando necessário
+
+## 🎯 Fluxo da Aplicação
+
+1. **Usuário acessa** → Home page com CTA "Montar PC"
+2. **Questionário** → Seleciona propósito (gaming/work/study) e orçamento
+3. **Recomendação** → API gera build personalizada
+4. **Motivos** → Explicação das escolhas
+5. **Peças** → Lista detalhada com preços
+6. **Salvar** → Login necessário para persistir builds
+
+## 📊 Dados Mock
+
+### Usuários de Teste
+- **Admin**: admin@ideal.com / 123456
+- **User**: user@ideal.com / 123456
+
+### Builds de Exemplo
+- Gaming econômica (~R$ 3.200)
+- Gaming extrema (~R$ 12.000)
+- Builds de trabalho e estudo
+
+## 🚀 Deploy
+
+Para produção, configure:
+
+1. `VITE_API_URL` com sua API real
+2. Build: `npm run build`
+3. Deploy dos arquivos da pasta `dist/`
+
+## 📝 Licença
+
+MIT License - veja o arquivo LICENSE para detalhes.

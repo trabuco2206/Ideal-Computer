@@ -2,6 +2,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { Button } from './ui/button';
 import { LogOut, Settings, User, Cpu } from 'lucide-react';
+import { ThemeToggle } from './ThemeToggle';
 
 export function Navbar() {
   const { user, isLoggedIn, isAdmin, logout } = useAuth();
@@ -45,6 +46,7 @@ export function Navbar() {
 
           {/* User Actions */}
           <div className="flex items-center space-x-4">
+            <ThemeToggle />
             {isLoggedIn ? (
               <div className="flex items-center space-x-3">
                 <div className="hidden md:flex items-center space-x-2 text-sm">
